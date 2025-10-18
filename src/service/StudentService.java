@@ -2,7 +2,6 @@ package service;
 
 import entity.StudentEntity;
 import repository.StudentRepository;
-
 import java.util.Map;
 
 
@@ -22,12 +21,8 @@ public class StudentService {
     }
 
     public boolean checkStudent(String studentId) {
-        Map<String, StudentEntity> students = studentRepository.getStudents();
-
-        for (String id : students.keySet()) {
-            if (id.equals(studentId)) {
-                return true;
-            }
+        if (studentRepository.getStudents().containsKey(studentId)) {
+            return true;
         }
         return false;
     }
