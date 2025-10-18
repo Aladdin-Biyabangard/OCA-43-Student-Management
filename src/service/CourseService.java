@@ -11,8 +11,6 @@ public class CourseService {
     }
 
     public void addCourse(CourseEntity course) {
-
-        courseRepository = new CourseRepository();
-
+        courseRepository.getCourses().put(course.getId(), course);
     }
 }
