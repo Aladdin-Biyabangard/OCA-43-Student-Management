@@ -13,4 +13,18 @@ public class CourseService {
     public void addCourse(CourseEntity course) {
         courseRepository.getCourses().put(course.getId(), course);
     }
+
+    public void updateCourse(String courseId, CourseEntity updatedCourse) {
+        if (checkCourse(courseId)) {
+            courseRepository.getCourses().put(courseId, updatedCourse);
+        }
+    }
+
+
+    public boolean checkCourse(String id) {
+        if (courseRepository.getCourses().containsKey(id)) {
+            return true;
+        }
+        return false;
+    }
 }
