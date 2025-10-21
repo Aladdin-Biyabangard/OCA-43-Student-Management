@@ -28,7 +28,6 @@ public class CourseService {
         }
     }
 
-
     public boolean checkCourse(String id) {
         if (courseRepository.getCourses().containsKey(id)) {
             return true;
