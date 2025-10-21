@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CourseRepository {
+
     private Map<String, CourseEntity> courses = new HashMap<>();
 
     public Map<String, CourseEntity> getCourses() {
