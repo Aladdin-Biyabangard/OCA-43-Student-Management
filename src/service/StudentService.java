@@ -1,7 +1,9 @@
-package service;
+package Service;
 
 import entity.StudentEntity;
 import repository.StudentRepository;
+
+import java.math.BigDecimal;
 import java.util.Map;
 
 
@@ -27,4 +29,18 @@ public class StudentService {
         }
         return false;
     }
+
+    public void addStudent(StudentEntity student) {
+        studentRepository.getStudents().put(student.getId(),student);
+    }
+
+    public void removeStudent(String studentId) {
+        studentRepository.getStudents().remove(studentId );
+    }
+
+    public void updateStudent(String studentId, StudentEntity updateStudent) {
+
+
+    }
 }
+
