@@ -1,5 +1,6 @@
 package service;
 
+import Exceptions.NotFoundException;
 import entity.CourseEntity;
 import entity.StudentEntity;
 import repository.CourseRepository;
@@ -31,8 +32,9 @@ public class CourseService {
     public boolean checkCourse(String id) {
         if (courseRepository.getCourses().containsKey(id)) {
             return true;
+        }else {
+            throw new NotFoundException("Course not found");
         }
-        return false;
     }
 
     public void addStudentToCourse(String courseId, String studentId) {
@@ -57,5 +59,11 @@ public class CourseService {
             }
         }
         return students;
+    }
+
+    public void removeCourse(String courseId){
+        if (checkCourse(courseId)){
+        courseRepository.getCourses().remove(courseId);
+        }
     }
 }
